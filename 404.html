@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページが見つかりません | hide.me無料ユーザ向けNetflix作品リスト</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 72px;
+            margin: 0;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .spinner {
+            margin: 30px auto;
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p id="message">リダイレクト中...</p>
+        <div class="spinner"></div>
+    </div>
+    
+    <script>
+        // 現在のURLパスを取得
+        const pathname = window.location.pathname;
+        const messageEl = document.getElementById('message');
+        
+        // ベースパスを取得（GitHub Pages: /hideme/, ローカル: /）
+        const basePath = pathname.includes('/hideme/') ? '/hideme' : '';
+        
+        // /works/*.html または /hideme/works/*.html の場合
+        const worksMatch = pathname.match(/\/works\/(.+)\.html$/);
+        if (worksMatch) {
+            const workId = worksMatch[1];
+            // ?work=xxx にリダイレクト
+            messageEl.textContent = '作品ページにリダイレクト中...';
+            window.location.href = `${window.location.origin}${basePath}/?work=${workId}`;
+        } else {
+            // その他の404の場合はトップページにリダイレクト
+            messageEl.textContent = 'トップページにリダイレクト中...';
+            window.location.href = `${window.location.origin}${basePath}/`;
+        }
+    </script>
+</body>
+</html>
