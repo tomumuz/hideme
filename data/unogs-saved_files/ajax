@@ -1,0 +1,9 @@
+$.ajaxSetup({
+    headers: {
+        'Accept': 'application/json',
+        'REFERRER':'http://unogs.com'
+    },
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer '+Cookies.get('authtoken'));
+    }
+});
