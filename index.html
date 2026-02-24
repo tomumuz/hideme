@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hide.me無料ユーザ向けNetflix作品リスト</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD7E45W3T0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DD7E45W3T0');
+    </script>
+    
+    <!-- OGP -->
+    <meta property="og:title" content="hide.me無料ユーザ向けNetflix作品リスト">
+    <meta property="og:description" content="Netflixの配信作品を国別に検索できるツール。hide.me(無料版)とuNoGSで視聴可能な7ヵ国の作品情報を提供しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tomumuz.github.io/hideme/">
+    <meta property="og:image" content="https://tomumuz.github.io/hideme/hideme-ogp.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="hide.me無料ユーザ向けNetflix作品リスト">
+    <meta name="twitter:description" content="Netflixの配信作品を国別に検索できるツール。hide.me(無料版)とuNoGSで視聴可能な7ヵ国の作品情報を提供しています。">
+    <meta name="twitter:image" content="https://tomumuz.github.io/hideme/hideme-ogp.png">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header-with-bg">
+            <h1>hide.me無料ユーザ向けNetflix作品リスト</h1>
+            <p class="subtitle">日本で視聴できない作品を国別に表示</p>
+        </header>
+
+        <div class="notice-section" style="margin: 20px 0; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+            <h3 style="margin: 0 0 15px 0; color: #856404; font-size: 18px; font-weight: bold; border-bottom: 2px solid #ffc107; padding-bottom: 10px;">⚠️ ご利用にあたっての注意事項</h3>
+            <p style="margin: 0 0 15px 0; color: #856404; font-weight: 600; font-size: 15px;">
+                以下の内容をよく読んでご利用ください🙇
+            </p>
+            
+            <!-- データソース -->
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 15px; font-weight: bold;">📊 データソース</h4>
+                <ul style="margin: 0; padding-left: 25px; color: #856404; line-height: 2; font-size: 14px;">
+                    <li>このページは <strong id="dataTimestamp">読み込み中...</strong> 時点の<a href="https://unogs.com/" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">uNoGS</a>の情報を元に作成しています</li>
+                </ul>
+            </div>
+            
+            <!-- hide.meについて -->
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 15px; font-weight: bold;">🌐 VPN（hide.me）について</h4>
+                <ul style="margin: 0; padding-left: 25px; color: #856404; line-height: 2; font-size: 14px;">
+                    <li><a href="https://ref.hide.io/yaaY0x" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">hide.me</a> の無料プランで接続可能な<strong>7ヶ国（アメリカ、オランダ、スイス、ドイツ、フィンランド、フランス、英国）</strong>で視聴できる作品を表示しています</li>
+                    <li><a href="https://ref.hide.io/yaaY0x" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">hide.me</a> の無料プランは<strong>速度制限があるので、快適に視聴できないことがあります</strong></li>
+                </ul>
+            </div>
+            
+            <!-- Netflixプランの制限 -->
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 15px; font-weight: bold;">🚫 Netflixの広告つきプランの制限</h4>
+                <ul style="margin: 0; padding-left: 25px; color: #856404; line-height: 2; font-size: 14px;">
+                    <li style="font-weight: 600;">広告つきプランを利用している人は<strong>「オランダ、スイス、フィンランド」を指定しても、プラン変更しないと作品を視聴できない可能性が高いです</strong></li>
+                    <li style="font-weight: 600;">広告つきプランを利用している人は<strong>配信国の「オランダ、スイス、フィンランド」のチェックボックスを外してから</strong>作品を調べてください</li>
+                </ul>
+            </div>
+            
+            <!-- 視聴に関する注意 -->
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 15px; font-weight: bold;">⚠️ 視聴に関する注意</h4>
+                <ul style="margin: 0; padding-left: 25px; color: #856404; line-height: 2; font-size: 14px;">
+                    <li>uNoGSの情報が誤っている場合、視聴できると表示されている国を<a href="https://ref.hide.io/yaaY0x" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">hide.me</a>で設定しても<strong>作品を視聴できないことがあります</strong></li>
+                    <li><a href="https://x.com/tomm_no_hibi" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">X</a>で紹介した作品が<strong>海外→日本の順番で配信された場合、このサイトから作品がなくなることがあります</strong>ので、その点はご了承ください</li>
+                </ul>
+            </div>
+            
+            <!-- 参考リンク -->
+            <div style="margin-bottom: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #856404; font-size: 15px; font-weight: bold;">🔗 参考リンク</h4>
+                <ul style="margin: 0; padding-left: 25px; color: #856404; line-height: 2; font-size: 14px;">
+                    <li><a href="https://ref.hide.io/yaaY0x" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 600;">hide.me</a>の利用方法や詳細は<a href="https://tomm.hatenablog.com/entry/2025/12/29/090000" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; font-weight: 700;">とむむの日々</a>をご確認ください</li>
+                </ul>
+            </div>
+            
+            <!-- サポート -->
+            <div style="margin-bottom: 0;">
+                <div id="codoc-entry-zCtLwM6M0w" class="codoc-entries" data-without-body="1" data-support-button-text="応援する（100円〜）" data-show-like="0" data-support-message="🙇このサイトを応援したい方はよろしくお願いします🙇"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="controls">
+                <button id="extractHtmlBtn" class="btn btn-primary" style="display: none;">HTMLから抽出</button>
+                <button id="loadBtn" class="btn btn-secondary">保存済みデータを読み込み</button>
+                <div class="status" id="status"></div>
+            </div>
+
+            <div class="filter-section">
+                <h2>配信国</h2>
+                <div style="margin-bottom: 15px; display: flex; gap: 15px; align-items: center;">
+                    <label class="checkbox-label" style="background: #667eea; color: white; font-weight: 600;">
+                        <input type="checkbox" id="selectAll" checked> 全て選択
+                    </label>
+                    <label class="checkbox-label" style="background: #6c757d; color: white; font-weight: 600;">
+                        <input type="checkbox" id="deselectAll"> 全て解除
+                    </label>
+                </div>
+                <div class="country-filters">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="US" checked> アメリカ
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="NL" checked> オランダ
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="CH" checked> スイス
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="DE" checked> ドイツ
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="FI" checked> フィンランド
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="FR" checked> フランス
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="country-checkbox" value="GB" checked> 英国
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h2>リリース年</h2>
+                <div style="display: flex; gap: 15px; align-items: center; padding: 15px; background: #f5f5f5; border-radius: 4px; margin-bottom: 20px;">
+                    <div style="flex: 1;">
+                        <label for="startYearSelect" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333;">開始年</label>
+                        <select id="startYearSelect" style="width: 100%; padding: 8px 12px; border: 2px solid #ddd; border-radius: 4px; font-size: 14px; background: white; cursor: pointer;">
+                            <!-- JavaScriptで動的に生成 -->
+                        </select>
+                    </div>
+                    <span style="color: #666; margin-top: 25px; font-size: 18px;">〜</span>
+                    <div style="flex: 1;">
+                        <label for="endYearSelect" style="display: block; margin-bottom: 5px; font-weight: 600; color: #333;">終了年</label>
+                        <select id="endYearSelect" style="width: 100%; padding: 8px 12px; border: 2px solid #ddd; border-radius: 4px; font-size: 14px; background: white; cursor: pointer;">
+                            <!-- JavaScriptで動的に生成 -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h2>ジャンル</h2>
+                <div style="margin-bottom: 15px; display: flex; gap: 15px; align-items: center;">
+                    <label class="checkbox-label" style="background: #667eea; color: white; font-weight: 600;">
+                        <input type="checkbox" id="selectAllCategories" checked> 全て選択
+                    </label>
+                    <label class="checkbox-label" style="background: #6c757d; color: white; font-weight: 600;">
+                        <input type="checkbox" id="deselectAllCategories"> 全て解除
+                    </label>
+                </div>
+                <!-- 日本のカテゴリ -->
+                <div class="category-filters" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <label class="checkbox-label" style="background: #ffcdd2; color: #c62828;">
+                        <input type="checkbox" class="category-checkbox" value="日本の映画(実写)" checked> 日本の映画(実写)
+                    </label>
+                    <label class="checkbox-label" style="background: #ffcdd2; color: #c62828;">
+                        <input type="checkbox" class="category-checkbox" value="日本の映画(アニメ)" checked> 日本の映画(アニメ)
+                    </label>
+                    <label class="checkbox-label" style="background: #ffcdd2; color: #c62828;">
+                        <input type="checkbox" class="category-checkbox" value="日本のTVドラマ" checked> 日本のTVドラマ
+                    </label>
+                    <label class="checkbox-label" style="background: #ffcdd2; color: #c62828;">
+                        <input type="checkbox" class="category-checkbox" value="日本のTVアニメ" checked> 日本のTVアニメ
+                    </label>
+                    <label class="checkbox-label" style="background: #ffcdd2; color: #c62828;">
+                        <input type="checkbox" class="category-checkbox" value="日本のその他" checked> 日本のその他
+                    </label>
+                </div>
+                
+                <!-- 海外のカテゴリ -->
+                <div class="category-filters" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
+                    <label class="checkbox-label" style="background: #bbdefb; color: #1565c0;">
+                        <input type="checkbox" class="category-checkbox" value="海外の映画(実写)" checked> 海外の映画(実写)
+                    </label>
+                    <label class="checkbox-label" style="background: #bbdefb; color: #1565c0;">
+                        <input type="checkbox" class="category-checkbox" value="海外の映画(アニメ)" checked> 海外の映画(アニメ)
+                    </label>
+                    <label class="checkbox-label" style="background: #bbdefb; color: #1565c0;">
+                        <input type="checkbox" class="category-checkbox" value="海外のTVドラマ" checked> 海外のTVドラマ
+                    </label>
+                    <label class="checkbox-label" style="background: #bbdefb; color: #1565c0;">
+                        <input type="checkbox" class="category-checkbox" value="海外のTVアニメ" checked> 海外のTVアニメ
+                    </label>
+                    <label class="checkbox-label" style="background: #bbdefb; color: #1565c0;">
+                        <input type="checkbox" class="category-checkbox" value="海外のその他" checked> 海外のその他
+                    </label>
+                </div>
+            </div>
+
+            <!-- 検索セクション -->
+            <div class="filter-section">
+                <h2>🔍 検索</h2>
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchBox" 
+                        class="search-box" 
+                        placeholder="作品名や概要で検索..."
+                        autocomplete="off"
+                    >
+                    <button id="clearSearchBtn" class="clear-search-btn" style="display: none;">
+                        <span>×</span>
+                    </button>
+                </div>
+                <p class="search-hint">※フィルター結果から検索します</p>
+            </div>
+
+            <div class="results-section">
+                <h2>結果 (<span id="resultCount">0</span>件)</h2>
+                <div id="results" class="results-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <h2 id="modalTitle"></h2>
+            <div class="modal-meta">
+                <span id="modalType"></span>
+                <span id="modalRating"></span>
+            </div>
+            <div class="modal-countries" id="modalCountries"></div>
+            <h3>概要</h3>
+            <p id="modalSynopsis"></p>
+            
+            <!-- シェアボタン -->
+            <button id="shareButton" class="share-button" title="リンクをコピー" onclick="shareWork()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- 作品が見つからない場合のモーダル -->
+    <div id="notFoundModal" class="modal">
+        <div class="modal-content not-found-modal">
+            <span class="modal-close" onclick="closeNotFoundModal()">&times;</span>
+            
+            <div class="not-found-content">
+                <div class="warning-icon">⚠️</div>
+                <h2>この作品はuNoGS上に存在しません</h2>
+                
+                <div class="not-found-message">
+                    <p><strong>※以下の可能性があります</strong></p>
+                    <ul>
+                        <li>この作品の配信が日本で開始</li>
+                        <li>この作品の配信が海外で終了</li>
+                        <li>一時的にuNoGS上から作品が消失<br>
+                            <span class="sub-note">（復活する可能性あり！）</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="not-found-actions">
+                    <button onclick="closeNotFoundModal()" class="btn-primary">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- トースト通知 -->
+    <div id="copyToast" class="copy-toast">リンクをコピーしました</div>
+
+    <script src="app.js"></script>
+    
+    <!-- codoc 支援機能 -->
+    <script src="https://codoc.jp/js/cms.js" data-css="rainbow" data-usercode="15m52ZRVZg" charset="UTF-8" defer></script>
+</body>
+</html>
+
